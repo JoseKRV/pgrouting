@@ -49,4 +49,5 @@ psql -p "$1" -U "$3"  -d "$2" -X -q --set client_min_messages=WARNING --set ON_E
     -f astar_pgtap_tests.sql \
     -f types_check.sql \
     -f via_compare.sql \
+    -f compare_dijkstra.sql \
     -f spanningtree.sql
