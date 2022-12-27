@@ -78,5 +78,7 @@ jobs:
           sudo service postgresql start
           sudo -u postgres createdb -p ${PGPORT}  ___pgr___test___
           ls -la .
-          la -la /home/runner/work/pgrouting/pgrouting
-          bash ./tools/testers/pg_prove_tests.sh postgres ${PGPORT}  Release
+          ls -la /home/runner/work/pgrouting/pgrouting
+          pushd ./tools/testers/ || exit 1
+          sudo -u postgres bash setup_db.sh "${PGPORT}" "___pgr___test___" postgres "3.5.0"
+          #bash ./tools/testers/pg_prove_tests.sh postgres ${PGPORT}  Release
