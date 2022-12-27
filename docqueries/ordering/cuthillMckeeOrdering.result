@@ -28,7 +28,7 @@ SELECT * FROM pgr_cuthillMckeeOrdering(
 (17 rows)
 
 /* -- q2 */
-
+-- added to pgtap test
 CREATE TABLE expected_result (
   seq BIGINT,
   node BIGINT);

@@ -210,3 +210,20 @@ SELECT * FROM pgr_maxCardinalityMatch(
   $$SELECT id, source, target, cost, reverse_cost FROM edges$$
 );
 /* --maxcard3 */
+/* --dijkstra1 */
+SELECT * FROM pgr_dijkstra(
+  $$SELECT id, source, target, cost, reverse_cost FROM edges$$,
+  6, 10);
+/* --dijkstra2 */
+SELECT * FROM pgr_dijkstra(
+  $$SELECT id, source, target, cost, reverse_cost FROM edges$$,
+  6, ARRAY[3, 10]);
+/* --dijkstra3 */
+SELECT * FROM pgr_dijkstra(
+  $$SELECT id, source, target, cost, reverse_cost FROM edges$$,
+  ARRAY[3, 6], 10);
+/* --dijkstra4 */
+SELECT seq, path_seq, node, edge, cost, agg_cost FROM pgr_dijkstra(
+  $$SELECT id, source, target, cost, reverse_cost FROM edges$$,
+  6, 10);
+/* --dijkstra5 */
