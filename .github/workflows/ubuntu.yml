@@ -77,7 +77,7 @@ jobs:
         run: |
           sudo service postgresql start
           sudo -u postgres createdb -p ${PGPORT}  ___pgr___test___
-          ls -la ./tools
+          whoami
           ls -la ./tools/testers
           pushd ./tools/testers/ || exit 1
           sudo -u postgres bash setup_db.sh "${PGPORT}" "___pgr___test___" postgres "3.5.0"
