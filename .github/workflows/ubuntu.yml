@@ -3,9 +3,16 @@ name: Build for Ubuntu
 # manually triggered workflow
 # - 5 * 2 * 2 = 20 jobs are triggered
 # - So many jobs take too much time
+# When this file changes
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/ubuntu.yml'
+
+    branches-ignore:
+      - 'gh-pages'
 
 permissions:
   contents: read
