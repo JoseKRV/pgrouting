@@ -27,7 +27,7 @@ jobs:
         matrix:
           psql: [10,11,12,13,14]
           postgis: [3]
-          os: [ubuntu-latest, ubuntu-18.04]
+          os: [ubuntu-latest, ubuntu-20.04, ubuntu-18.04]
 
     steps:
       - uses: actions/checkout@v3
@@ -80,5 +80,5 @@ jobs:
           ls -la ./tools
           ls -la ./tools/testers
           pushd ./tools/testers/ || exit 1
-          bash setup_db.sh "${PGPORT}" "___pgr___test___" postgres "3.5.0"
+          sudo -u postgres bash setup_db.sh "${PGPORT}" "___pgr___test___" postgres "3.5.0"
           #bash ./tools/testers/pg_prove_tests.sh postgres ${PGPORT}  Release
